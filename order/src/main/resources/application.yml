@@ -1,0 +1,38 @@
+
+server:
+  port: 8082
+
+
+spring:
+  application:
+    name: order
+#  session:
+#    store-type: redis
+  redis:
+    password: 123456
+#    password: 123456
+#    clusterNodes: 127.0.0.1:7000,127.0.0.1:7001,127.0.0.1:7002,127.0.0.1:7003,127.0.0.1:7004,127.0.0.1:7005
+#    expireSeconds: 120
+#    commandTimeout: 10000
+#    pool:
+#      maxActive: 5000 #最大连接数
+#      maxIdle: 30 #最大空闲连接数
+#      minIdle: 5 #最小空闲连接数
+#      maxWait: 3000  #获取连接最大等待时间 ms  #default -1
+
+    cluster:
+      nodes: 127.0.0.1:7000,127.0.0.1:7001,127.0.0.1:7002,127.0.0.1:7003,127.0.0.1:7004,127.0.0.1:7005
+
+    database: 0
+    jedis:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 5000
+        # 连接池中的最大空闲连接
+        max-idle: 30
+        # 连接池中的最小空闲连接
+        min-idle: 5
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: 3000
+    # 连接超时时间（毫秒）
+    timeout: 50000
